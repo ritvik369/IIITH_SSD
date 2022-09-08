@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+    <title>Records</title>
+    <link rel="stylesheet" type="text/css" hre=""style.css">
+    <script>
+        function addRecord()
+        {
+            var rollno=document.getElementById("rollno").value;
+            var name=document.getElementById("name");
+            var tablename=document.getElementById("studentRecord");
+            rollno=rollno.trim();
+            name=name.trim();
+            if(rollno!="" || name!="")
+            {
+                var addRow=tablename.insertRow(-1);
+                var addColumnRollNo=addRow.insertCell(0);
+                addColumnRollNo.innerText=rollno;
+                var addColumnName=addRow.insertCell(1);
+                addColumnName.innerText=name;
+            }
+            document.getElementById("rollno").value="";
+            document.getElementById("name").value="";
+        }
+        function deleteRecord()
+        {
+            var tablename=document.getElementById("studentRecord");
+            tablename.deleteRow(-1);
+        }
+
+    </script>
+</head>
+<body>
+    <br><br><br><br><br><br><br><br><br>
+    <center>
+        <h1>STUDENT RECORDS</h1>
+    </center>
+    <table align="center">
+        <tr id="tab1">
+          <td><input id="Roll" placeholder="Roll" type="text" class="a1"></td>
+          <td><input id="Name" placeholder="Name" type="text" class="a1"></td>
+        </tr>
+    </table>
+    <br><br>
+    <table id="table1" align="center" border="5" height="300">
+    <tr>
+        <th>Roll</th><th>Name</th>
+    </tr>
+    <table align=""center"></table>
+    </table>
+    <br>
+    <center>
+    <input id="button2" type="button" onClicl="deleteRecord" value="Delete Last Entry">
+    </center>
+    </table>
+</body>
