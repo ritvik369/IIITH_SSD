@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+<head>
+    <title>Team Forming</title>
+    <script>
+        function check() 
+        {
+            if (document.getElementById('serverpsw').value!=document.getElementById('confirmpsw').value)
+            {
+                document.getElementById('message').style.color = 'red';
+                document.getElementById('message').innerHTML = 'Passwords do not match';
+            }
+        }
+        function checkusername()
+        {
+            var a=document.getElementById("username").value;
+            //alert(a);
+            var u=/[A-Z]/g;
+            var n=/[0-9]/g;
+            if(a.match(u) && a.match(n))
+            {
+                document.getElementById("username1").innerHTML="";
+            }
+            else
+            {
+                document.getElementById('username1').style.color = 'red';
+                document.getElementById("username1").innerHTML="Invalid Username";
+            }
+        }
+        function popup()
+        {
+            var a=document.getElementById("Mname").value;
+            b=document.getElementById("mail").value;
+            c=document.getElementById("username").value;
+            d=document.getElementById("serverpsw").value;
+            e=document.getElementById("confirmpsw").value;
+            f=document.getElementById("tlead").value;
+            if(a==""||b==""||c==""||d==""||e==""||f=="")
+            {
+                alert("Please enter all fields");
+            }
+            else
+            {
+                alert("Manager Name: "+a+"\n"+"Mail: "+b+"\n"+"Username: "+c+"\n"+"Lead: "+f);
+            }
+        }
+    </script>
+</head>
+<body>
+    <center>
+    <h2>Team Form</h2>
+    </center>
+    <table cellpadding="15">
+        <form onblur = "return checkPassword(this)">
+            <tr>
+                <td>
+                    <label for="Mname">Manager Name:</label>
+                </td>
+                <td colspan="2">
+                    <input type="text" id="Mname" name="Mname" required>
+                <td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="mail">Group Email:</label>
+                </td>
+                <td colspan="2">
+                    <input type="email" id="mail" name="mail" required>
+                <td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="username">Server Username:</label>
+                </td>
+                <td >
+                    <input type="text" id="username" name="username" onblur="checkusername()" required>
+                <td>
+                    <td id="username1"></td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="serverpsw">Server Password:</label>
+                </td>
+                <td>
+                    <input type="password"  id="serverpsw" name="serverpsw" required >
+                <td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="confirmpsw">Confirm Password</label>
+                </td>
+                <td>
+                    <input type="password"  id="confirmpsw" name="confirmpsw" onblur="check()"" required>
+                <td>
+                    <td id="message"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="tlead">Team Lead:</label>
+                </td>
+                <td colspan="2">
+                    <select id="tlead" name="tlead" required>
+                        <option value="Bruce">Bruce</option>
+                        <option value="Steve">Steve</option>
+                        <option value="Tony">Tony</option>
+                        <option value="Mark">Mark</option>
+                    </select>
+                <td>
+            </tr>
+            <tr> 
+                <td>
+                    <label for="tmenbers">Team Members:</label>
+                </td>
+                <td colspan="2"
+                    id="team_select">
+                    <table style="width:100%;border:1px solid black;height:5cm;width:5cm;">
+                        <tr>
+                            <td
+                                class="mem1" id="Bruce">Bruce
+                            </td>
+                        </tr>
+                        <tr>
+                            <td
+                                class="mem1" id="Steve">Steve
+                            </td>
+                        </tr>
+                        <tr>
+                            <td
+                                class="mem1" id="Tony">Tony
+                            </td>
+                        </tr>
+                        <tr>
+                            <td
+                                class="mem1" id="Mark">Mark
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td id="team_add" style="width:100%;border:1px solid black;height:5cm;width:5cm;">
+                </td>
+            </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Submit" onclick="popup()">
+            <td>
+        </tr>
+      </form> 
+    </table>
+</body>
